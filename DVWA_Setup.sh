@@ -33,7 +33,7 @@ EOF
 echo "Setting up DVWA database..."
 sudo mysql -u root <<EOF
 CREATE DATABASE dvwa;
-CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'password';
+CREATE USER 'dvwa'@'localhost' IDENTIFIED BY 'p@ssw0rd';
 GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost';
 FLUSH PRIVILEGES;
 EOF
@@ -52,7 +52,7 @@ sudo chmod -R 755 /var/www/html/DVWA
 # Copy the configuration file
 echo "Configuring DVWA..."
 sudo cp config/config.inc.php.dist config/config.inc.php
-sudo sed -i "s/'db_password' => ''/'db_password' => 'password'/g" config/config.inc.php
+sudo sed -i "s/'db_password' => ''/'db_password' => 'p@ssw0rd'/g" config/config.inc.php
 
 # Configure PHP settings
 echo "Adjusting PHP settings..."
